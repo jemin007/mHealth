@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:mhealth/services/auth.dart';
 import 'package:mhealth/shared/constants.dart';
 
 class LoginPage extends StatefulWidget {
+    final Function toggleView;
+  LoginPage ({ this.toggleView });
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-
+  final AuthService _auth = AuthService();
   String email, password, error = '';
 
   final _formKey = GlobalKey<FormState>();
@@ -20,14 +23,7 @@ class _LoginPageState extends State<LoginPage> {
         brightness: Brightness.light,
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          color: Colors.black87,
-          iconSize: 28,
-        ),
+        
         ),
         body: Container(
           height: MediaQuery.of(context).size.height,
@@ -77,10 +73,12 @@ class _LoginPageState extends State<LoginPage> {
                                   setState(() => password = val);
                                 },
                             ),
+                            
                             // makeInput(label: 'Email'),
                             // makeInput(label: 'Password', obscureText: true),
                         ],),
                       ),
+                      
                     ),
                     Padding(padding: EdgeInsets.symmetric(horizontal: 40),
                     child:  MaterialButton(
@@ -88,8 +86,14 @@ class _LoginPageState extends State<LoginPage> {
                       height: 60,
                       elevation: 0,
                       minWidth: double.infinity,
-                      onPressed: (){
-                        
+                      onPressed: () async{
+                        if(_formKey.currentState.validate()){
+                          dynamic result = await _auth.signInWithEmailAndPass(email, password);
+                      if (result == null) {
+                        setState(() {error = 'please enter valid information';
+                        });
+                      }
+                  }
                        },
                       shape: RoundedRectangleBorder(
                         side: BorderSide(
@@ -100,8 +104,31 @@ class _LoginPageState extends State<LoginPage> {
                         fontWeight: FontWeight.w700,
                         fontSize: 20,
                       ),),
-                      ),
+                      ), 
                     ),
+
+                    Padding(padding: EdgeInsets.symmetric(horizontal: 40),
+                    child:  MaterialButton(
+                      color: Color(0xfffdeecc),
+                      height: 60,
+                      elevation: 0,
+                      minWidth: double.infinity,
+                      onPressed: () async{
+                        widget.toggleView();
+                       },
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          color: Colors.black),
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      child: Text('Sign Up', style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                      ),),
+                      ), 
+                    ),
+                    SizedBox(height: 10.0,),
+              Text(error, style: TextStyle(color:Colors.red, fontSize: 18.0),),
                     Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -114,6 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),),
                   ],
                 ),
+                
                   ],
                 ),
               ),

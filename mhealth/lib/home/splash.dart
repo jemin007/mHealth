@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mhealth/home/login.dart';
 import 'package:mhealth/home/signup.dart';
-import 'package:simple_animations/simple_animations.dart';
 
 class SplashPage extends StatelessWidget {
   @override

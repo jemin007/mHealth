@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "795707261264",
+    "firebase_url": "https://mhealth-60ba5.firebaseio.com",
+    "project_id": "mhealth-60ba5",
+    "storage_bucket": "mhealth-60ba5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:795707261264:android:db105c1ce0996d7b686c55",
+        "android_client_info": {
+          "package_name": "com.jemin.mhealth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "795707261264-0i24mp09jh9hkf6itp26q7nuckt342ip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZLu4_kU87lZXXBlpm7FbX3vLZOUupZvE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "795707261264-0i24mp09jh9hkf6itp26q7nuckt342ip.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
