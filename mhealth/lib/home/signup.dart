@@ -58,18 +58,16 @@ class _SignUpState extends State<SignUp> {
                 key: _formKey,
                  child: Column(
                   children: <Widget>[
-                    // makeInput(label: 'Email'),
-                    // makeInput(label: 'Password', obscureText: true),
-                    TextFormField(
-                              decoration: textInputDecoration.copyWith(
-                                labelText: 'Name'),
-                                keyboardType: TextInputType.text,
-                                validator: (val) => val.isEmpty ? 'Enter your name' : null,
-                                onChanged: (val) {
-                                  setState(() => name = val);
-                                },
-                            ),
-                            SizedBox(height: 15,),
+                    // TextFormField(
+                    //           decoration: textInputDecoration.copyWith(
+                    //             labelText: 'Name'),
+                    //             keyboardType: TextInputType.text,
+                    //             validator: (val) => val.isEmpty ? 'Enter your name' : null,
+                    //             onChanged: (val) {
+                    //               setState(() => name = val);
+                    //             },
+                    //         ),
+                    //         SizedBox(height: 15,),
                     TextFormField(
                               decoration: textInputDecoration.copyWith(
                                 labelText: 'Email'),
@@ -91,62 +89,62 @@ class _SignUpState extends State<SignUp> {
                                 },
                             ),
                             SizedBox(height: 15,),
-                            TextFormField(
-                              decoration: textInputDecoration.copyWith(
-                                labelText: 'Emergency Contact No.'),
-                                keyboardType: TextInputType.number,
-                                validator: (val) => val.length < 10 ? 'Enter your contact no. (10 Digits)' : null,
-                                onChanged: (val) {
-                                  setState(() => contact = val);
-                                },
-                            ),
-                            SizedBox(height: 15,),
+                            // TextFormField(
+                            //   decoration: textInputDecoration.copyWith(
+                            //     labelText: 'Emergency Contact No.'),
+                            //     keyboardType: TextInputType.number,
+                            //     validator: (val) => val.length < 10 ? 'Enter your contact no. (10 Digits)' : null,
+                            //     onChanged: (val) {
+                            //       setState(() => contact = val);
+                            //     },
+                            // ),
+                            // SizedBox(height: 15,),
                             
-                            DropdownButtonFormField(
-                              hint: Text('Blood Group'),
-                              decoration: textInputDecoration,
+                            // DropdownButtonFormField(
+                            //   hint: Text('Blood Group'),
+                            //   decoration: textInputDecoration,
                               
-                              items: bloodgrp.map((bg) {
-                                return DropdownMenuItem(
-                                  value: bg,
-                                  child: Text('$bg'),
-                                  );
-                              } ).toList(), 
-                              onChanged: (val) => setState(() => bog = val))
-                              ,
-                              SizedBox(height: 15,),
-                            TextFormField(
-                              decoration: textInputDecoration.copyWith(
-                                labelText: 'Blood Pressure',
-                                hintText: 'mm-Hg'),
-                                keyboardType: TextInputType.number,
-                                validator: (val) => val.isEmpty ? 'Enter your blood pressure (mm-Hg)' : null,
-                                onChanged: (val) {
-                                  setState(() => bp = val);
-                                },
-                            ),
-                            SizedBox(height: 15,),
-                            TextFormField(
-                              decoration: textInputDecoration.copyWith(
-                                labelText: 'Weight',
-                                hintText: 'Kg'),
-                                keyboardType: TextInputType.number,
-                                validator: (val) => val.isEmpty ? 'Enter your weight (Kg)' : null,
-                                onChanged: (val) {
-                                  setState(() => weight = val);
-                                },
-                            ),
-                            SizedBox(height: 15,),
-                            TextFormField(
-                              decoration: textInputDecoration.copyWith(
-                                labelText: 'Sugar Level',
-                                hintText: 'mg/dL'),
-                                keyboardType: TextInputType.number,
-                                validator: (val) => val.isEmpty ? 'Enter your sugar level(mg/dL)' : null,
-                                onChanged: (val) {
-                                  setState(() => sugar = val);
-                                },
-                            ),
+                            //   items: bloodgrp.map((bg) {
+                            //     return DropdownMenuItem(
+                            //       value: bg,
+                            //       child: Text('$bg'),
+                            //       );
+                            //   } ).toList(), 
+                            //   onChanged: (val) => setState(() => bog = val))
+                            //   ,
+                            //   SizedBox(height: 15,),
+                            // TextFormField(
+                            //   decoration: textInputDecoration.copyWith(
+                            //     labelText: 'Blood Pressure',
+                            //     hintText: 'mm-Hg'),
+                            //     keyboardType: TextInputType.number,
+                            //     validator: (val) => val.isEmpty ? 'Enter your blood pressure (mm-Hg)' : null,
+                            //     onChanged: (val) {
+                            //       setState(() => bp = val);
+                            //     },
+                            // ),
+                            // SizedBox(height: 15,),
+                            // TextFormField(
+                            //   decoration: textInputDecoration.copyWith(
+                            //     labelText: 'Weight',
+                            //     hintText: 'Kg'),
+                            //     keyboardType: TextInputType.number,
+                            //     validator: (val) => val.isEmpty ? 'Enter your weight (Kg)' : null,
+                            //     onChanged: (val) {
+                            //       setState(() => weight = val);
+                            //     },
+                            // ),
+                            // SizedBox(height: 15,),
+                            // TextFormField(
+                            //   decoration: textInputDecoration.copyWith(
+                            //     labelText: 'Sugar Level',
+                            //     hintText: 'mg/dL'),
+                            //     keyboardType: TextInputType.number,
+                            //     validator: (val) => val.isEmpty ? 'Enter your sugar level(mg/dL)' : null,
+                            //     onChanged: (val) {
+                            //       setState(() => sugar = val);
+                            //     },
+                            // ),
                             SizedBox(height: 15,),
                   
               MaterialButton(
@@ -157,7 +155,7 @@ class _SignUpState extends State<SignUp> {
                 onPressed: () async {
                   if(_formKey.currentState.validate()){
                     //name, bog, weight, bp, sugar, contact
-                    dynamic result = await _auth.registerWithEmailAndPass(email, password, );
+                    dynamic result = await _auth.registerWithEmailAndPass(email, password);
                       if (result == null) {
                         setState(() {error = 'please enter valid information';
                         });
@@ -232,37 +230,3 @@ class _SignUpState extends State<SignUp> {
     );
   }
 }
-
-// Widget makeInput({label, obscureText = false}) {
-//   return Column(
-//     crossAxisAlignment: CrossAxisAlignment.start,
-//     children: <Widget>[
-//       Text(label,
-//           style: TextStyle(
-//             fontSize: 18,
-//             fontWeight: FontWeight.w600,
-//             color: Colors.black87,
-//           )),
-//       SizedBox(
-//         height: 5,
-//       ),
-//       TextField(
-//         obscureText: obscureText,
-//         decoration: InputDecoration(
-//           contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
-//           enabledBorder: OutlineInputBorder(
-//               borderSide: BorderSide(
-//             color: Colors.grey[400],
-//           )),
-//           border: OutlineInputBorder(
-//               borderSide: BorderSide(
-//             color: Colors.grey[800],
-//           )),
-//         ),
-//       ),
-//       SizedBox(
-//         height: 30,
-//       ),
-//     ],
-//   );
-// }

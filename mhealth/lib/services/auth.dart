@@ -25,7 +25,7 @@ class AuthService {
 
       //create a new document for the user with the uid
       //name, contact, bog, bp, weight, sugar
-      // await DatabaseService(uid: user.uid).updateUserData('ram', '12121212', 'A', 'a', '12', '1');
+      //await DatabaseService(uid: user.uid).updateUserData('ram', '12121212', 'A', 'a', '12', '1');
       return _userFromFirebase(user);
       } catch(e) {
         print(e.toString());
@@ -35,15 +35,16 @@ class AuthService {
 
     //String name, String contact, String bog, String bp, String weight, String sugar
     //register with email and pass
-    Future registerWithEmailAndPass(String email, String password, ) async{
+    Future registerWithEmailAndPass(String email, String password) async{
       try {
         AuthResult result = await _auth.createUserWithEmailAndPassword(
           email: email.trim(), password: password,);
       FirebaseUser user = result.user;
 
       //create a new document for the user with the uid
+      //'ram', '12121212', 'A', 'a', '12', '1'
       //name, contact, bog, bp, weight, sugar
-      // await DatabaseService(uid: user.uid).updateUserData('ram', '12121212', 'A', 'a', '12', '1');
+      await DatabaseService(uid: user.uid).updateUserData('Your Name', '986X-XXXXX', 'A+', '120-20', '65', '120');
       return _userFromFirebase(user);
       } catch(e) {
         print(e.toString());
