@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_icons/line_awesome_icons.dart';
 import 'package:mhealth/helper/dialog_helper.dart';
-import 'package:mhealth/services/auth.dart';
+import 'package:mhealth/pages/elements/image_carousel.dart';
+
 
 class Home extends StatefulWidget {
   Home({Key key}) : super(key: key);
@@ -28,7 +29,7 @@ class _HomeState extends State<Home> {
                   top: 80,
                   left: 30,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     //crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
@@ -39,7 +40,8 @@ class _HomeState extends State<Home> {
                           color: Colors.black,
                         ),
                       ),
-                      Padding(padding: EdgeInsets.only(right: 200.0)),
+                      SizedBox(width: 10.0,),
+                      // Padding(padding: EdgeInsets.only(right: 200.0)),
                       IconButton(
                           icon: Icon(
                             LineAwesomeIcons.power_off,
@@ -51,6 +53,11 @@ class _HomeState extends State<Home> {
                           }),
                     ],
                   ),
+                ),
+                
+                Padding(
+                  padding: const EdgeInsets.only(top: 220.0, left: 10.0, right: 10.0),
+                  child: ImageCarousel(),
                 ),
               ],
             ),

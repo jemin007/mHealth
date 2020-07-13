@@ -15,7 +15,7 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
 
-  int _currentIndex = 2;
+  int _currentIndex = 0;
 
     //importing pages
     final Hospital _hospital = Hospital();
