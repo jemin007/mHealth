@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_icons/line_awesome_icons.dart';
 import 'package:mhealth/helper/dialog_helper.dart';
+import 'package:mhealth/pages/elements/call.dart';
 import 'package:mhealth/pages/elements/image_carousel.dart';
+import 'package:mhealth/pages/elements/info_card.dart';
 
 
 class Home extends StatefulWidget {
@@ -54,13 +56,34 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
-                
-                Padding(
-                  padding: const EdgeInsets.only(top: 220.0, left: 10.0, right: 10.0),
-                  child: ImageCarousel(),
-                ),
               ],
             ),
+            SizedBox(height: 10.0,),
+            SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Padding(padding: EdgeInsets.fromLTRB(8, 1, 8, 5),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  
+                  Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
+                    children: <Widget>[
+                      ImageCarousel(),
+                      SizedBox(height: 14,),
+                      CallCard(),
+                      SizedBox(height: 14,),
+                      Infographics(),
+                    ],
+                  ),
+                ),
+                
+                ],
+              ),
+              ),  
+            ),
+            
           ],
         ),
       ),
@@ -77,8 +100,8 @@ _backgroundCover() {
             end: Alignment.bottomLeft,
             colors: [Color(0xfffdeecc), Color(0xff8dbbf2)]),
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(40),
-          bottomRight: Radius.circular(40),
+          bottomLeft: Radius.circular(35),
+          bottomRight: Radius.circular(35),
         )),
   );
 }

@@ -50,6 +50,7 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
 
       return Scaffold(
+        backgroundColor: Colors.grey[200],
         body: ListView(children: <Widget>[_showCurrent],),
       bottomNavigationBar: CurvedNavigationBar(    
         backgroundColor: Color(0xff8dbbf2),

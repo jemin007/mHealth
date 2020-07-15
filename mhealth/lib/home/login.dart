@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                     Padding(padding: EdgeInsets.symmetric(horizontal: 40),
                     child:  MaterialButton(
                       color: Color(0xff8dbbf2),
-                      height: 60,
+                      height: 50,
                       elevation: 0,
                       minWidth: double.infinity,
                       onPressed: () async{
@@ -106,11 +106,11 @@ class _LoginPageState extends State<LoginPage> {
                       ),),
                       ), 
                     ),
-
+                      SizedBox(height: 5),
                     Padding(padding: EdgeInsets.symmetric(horizontal: 40),
                     child:  MaterialButton(
                       color: Color(0xfffdeecc),
-                      height: 60,
+                      height: 50,
                       elevation: 0,
                       minWidth: double.infinity,
                       onPressed: () async{
@@ -127,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),),
                       ), 
                     ),
-                    SizedBox(height: 10.0,),
+                    //SizedBox(height: 10.0,),
               Text(error, style: TextStyle(color:Colors.red, fontSize: 18.0),),
                     Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -135,7 +135,7 @@ class _LoginPageState extends State<LoginPage> {
                     Text("Dont't have an account?  ", style: TextStyle(
                       fontSize: 16,
                     ),), 
-                    Text('Sign Up', style: TextStyle(
+                    Text('Sign Up',  style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),),
