@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mhealth/services/auth.dart';
 import 'package:mhealth/shared/constants.dart';
+import 'package:mhealth/shared/loading_widget.dart';
 
 class LoginPage extends StatefulWidget {
     final Function toggleView;
@@ -12,11 +13,12 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final AuthService _auth = AuthService();
   String email, password, error = '';
+  bool loading = false;
 
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return loading ? Loading() : Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -88,9 +90,12 @@ class _LoginPageState extends State<LoginPage> {
                       minWidth: double.infinity,
                       onPressed: () async{
                         if(_formKey.currentState.validate()){
+                          setState(()=> loading = true);
                           dynamic result = await _auth.signInWithEmailAndPass(email, password);
                       if (result == null) {
+                        
                         setState(() {error = 'please enter valid information';
+                        loading = false;
                         });
                       }
                   }

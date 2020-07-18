@@ -11,6 +11,11 @@ class AuthService {
       return user != null ? User(uid : user.uid) : null;
     }
 
+    //get uid 
+    // Future<String>getCurrentUID() async {
+    //   return (await _auth.currentUser()).uid;
+    // }
+
     //auth change stream
     Stream<User> get user {
       return _auth.onAuthStateChanged.map(_userFromFirebase);
@@ -35,7 +40,7 @@ class AuthService {
 
     //String name, String contact, String bog, String bp, String weight, String sugar
     //register with email and pass
-    Future registerWithEmailAndPass(String email, String password) async{
+    Future registerWithEmailAndPass(String email, String password,) async{
       try {
         AuthResult result = await _auth.createUserWithEmailAndPassword(
           email: email.trim(), password: password,);

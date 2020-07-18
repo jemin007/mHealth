@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:mhealth/models/userlist.dart';
 
 class DatabaseService{
 
@@ -16,5 +17,24 @@ DatabaseService({ this.uid });
       'weight' : weight,
       'sugar' : sugar,
     });
+  }
+
+  List<UserData> _userFromSnapshot(QuerySnapshot snapshot) {
+    return snapshot.documents.map((doc) {
+      return UserData(
+        bog: doc.data['bog'] ?? '',
+        bp: doc.data['bp'] ?? '',
+        contact: doc.data['contact'] ?? '',
+        name: doc.data['name'] ?? '',
+        sugar: doc.data['sugar'] ?? '',
+        weight: doc.data['weight'] ?? '',
+        );
+    }).toList();
+  }
+
+  Stream<List<UserData>> get user {
+    return userData.snapshots().map(
+      _userFromSnapshot
+    );
   }
 }
