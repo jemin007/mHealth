@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 
 import 'home/wrapper.dart';
 
-void main() {
+void main()  {
   runApp(MyApp());
 }
 
