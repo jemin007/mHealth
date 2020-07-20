@@ -60,16 +60,7 @@ class _SignUpState extends State<SignUp> {
                 key: _formKey,
                  child: Column(
                   children: <Widget>[
-                    // TextFormField(
-                    //           decoration: textInputDecoration.copyWith(
-                    //             labelText: 'Name'),
-                    //             keyboardType: TextInputType.text,
-                    //             validator: (val) => val.isEmpty ? 'Enter your name' : null,
-                    //             onChanged: (val) {
-                    //               setState(() => name = val);
-                    //             },
-                    //         ),
-                    //         SizedBox(height: 15,),
+
                     TextFormField(
                               decoration: textInputDecoration.copyWith(
                                 labelText: 'Email'),
@@ -91,63 +82,6 @@ class _SignUpState extends State<SignUp> {
                                 },
                             ),
                             SizedBox(height: 15,),
-                            // TextFormField(
-                            //   decoration: textInputDecoration.copyWith(
-                            //     labelText: 'Emergency Contact No.'),
-                            //     keyboardType: TextInputType.number,
-                            //     validator: (val) => val.length < 10 ? 'Enter your contact no. (10 Digits)' : null,
-                            //     onChanged: (val) {
-                            //       setState(() => contact = val);
-                            //     },
-                            // ),
-                            // SizedBox(height: 15,),
-                            
-                            // DropdownButtonFormField(
-                            //   hint: Text('Blood Group'),
-                            //   decoration: textInputDecoration,
-                              
-                            //   items: bloodgrp.map((bg) {
-                            //     return DropdownMenuItem(
-                            //       value: bg,
-                            //       child: Text('$bg'),
-                            //       );
-                            //   } ).toList(), 
-                            //   onChanged: (val) => setState(() => bog = val))
-                            //   ,
-                            //   SizedBox(height: 15,),
-                            // TextFormField(
-                            //   decoration: textInputDecoration.copyWith(
-                            //     labelText: 'Blood Pressure',
-                            //     hintText: 'mm-Hg'),
-                            //     keyboardType: TextInputType.number,
-                            //     validator: (val) => val.isEmpty ? 'Enter your blood pressure (mm-Hg)' : null,
-                            //     onChanged: (val) {
-                            //       setState(() => bp = val);
-                            //     },
-                            // ),
-                            // SizedBox(height: 15,),
-                            // TextFormField(
-                            //   decoration: textInputDecoration.copyWith(
-                            //     labelText: 'Weight',
-                            //     hintText: 'Kg'),
-                            //     keyboardType: TextInputType.number,
-                            //     validator: (val) => val.isEmpty ? 'Enter your weight (Kg)' : null,
-                            //     onChanged: (val) {
-                            //       setState(() => weight = val);
-                            //     },
-                            // ),
-                            // SizedBox(height: 15,),
-                            // TextFormField(
-                            //   decoration: textInputDecoration.copyWith(
-                            //     labelText: 'Sugar Level',
-                            //     hintText: 'mg/dL'),
-                            //     keyboardType: TextInputType.number,
-                            //     validator: (val) => val.isEmpty ? 'Enter your sugar level(mg/dL)' : null,
-                            //     onChanged: (val) {
-                            //       setState(() => sugar = val);
-                            //     },
-                            // ),
-                            SizedBox(height: 15,),
                   
               MaterialButton(
                 color: Color(0xfffdeecc),
@@ -165,13 +99,6 @@ class _SignUpState extends State<SignUp> {
                         });
                       }
 
-                    print(name);
-                    print(email);
-                    print(password);
-                    print(contact);
-                    print(bog);
-                    print(sugar);
-                    print(weight);
 
                   }
                 },
@@ -208,24 +135,6 @@ class _SignUpState extends State<SignUp> {
               ),
               ],
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    "Already have an account?  ",
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
-                  ),
-                  Text(
-                    'Login',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  ),
-                ],
               ),
             ],
           ),

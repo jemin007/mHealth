@@ -94,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                           dynamic result = await _auth.signInWithEmailAndPass(email, password);
                       if (result == null) {
                         
-                        setState(() {error = 'please enter valid information';
+                        setState(() {error = 'Incorrect email or password!';
                         loading = false;
                         });
                       }
@@ -134,24 +134,13 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     //SizedBox(height: 10.0,),
               Text(error, style: TextStyle(color:Colors.red, fontSize: 18.0),),
-                    Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text("Dont't have an account?  ", style: TextStyle(
-                      fontSize: 16,
-                    ),), 
-                    Text('Sign Up',  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),),
-                  ],
-                ),
+                    
                 
                   ],
                 ),
               ),
               Container(
-                height: MediaQuery.of(context).size.height / 3,
+                height: MediaQuery.of(context).size.height / 4,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/lg.png'),

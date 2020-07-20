@@ -7,7 +7,7 @@ class Infographics extends StatelessWidget {
     return Column(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 18, vertical: 27),
+          padding: EdgeInsets.symmetric(horizontal: 5, vertical: 27),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: Colors.white,
@@ -21,9 +21,9 @@ class Infographics extends StatelessWidget {
                   CircleAvatar(
                     backgroundColor: Colors.grey,
                     backgroundImage: AssetImage('assets/wash.png'),
-                     radius: 43,
+                     radius: 40,
                   ),
-                  SizedBox(width: 20,),
+                  SizedBox(width: 5,),
                   RichText(
                     text: TextSpan(
                       text: 'Wash your hands frequently!', style: infoHead,                  
@@ -60,11 +60,11 @@ class Infographics extends StatelessWidget {
                           style: infoSubHead
                         )
                       ], )),
-                      SizedBox(width: 20,),
+                      SizedBox(width: 5,),
                   CircleAvatar(
                     backgroundColor: Colors.grey,
                     backgroundImage: AssetImage('assets/doc.png'),
-                     radius: 43,
+                     radius: 40,
                   ),
                   
                   
